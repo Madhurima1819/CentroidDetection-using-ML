@@ -1,0 +1,31 @@
+   Data General Structure & Informations (NOTE: Advised to keep the Same for all Code Versions)
+==================================================================================================
+
+Data Type: Original Data of User Location can be accessed from the Following Sources
+	> BerlinMOD : http://dna.fernuni-hagen.de/secondo/BerlinMOD/BerlinMOD.html
+		- a Data Parser is Generated for the Same!
+		- the Data is Parsed to the Format & Field as Given Below.
+	> RandMOD01 : A Random Data of Randomly Generated Particles is Generated - for Code Development
+		- Data can be Generated with the Function : GenerateData.RandMOD01()
+
+Any Data from the Above Type is Parsed with the following Fields (Description, as below).
+	- ParticleID	: A Random Name of Alpha-Numeric Charecter (unique) which is the Particle ID
+		* this Particle-ID is useful for Identifying, and Locating any Object/Particle at any given time
+		* ParticleID FORMAT : <7-BIT-HEX-Code-Randomly-Generated>:<MAX-TRIP-ID-VALUE>:<7-BIT-Random-Decimal-Number>
+		* where MAX-TRIP-ID-VALUE Denotes how many Unique TripID is associated with the Particle
+	- TripID		: A Trip-ID Associated with a Particle, which is unique to Each Particle
+		* FORMAT : TRIP-#<2-BIT DEC Number>
+		* The 2-BIT DEC Number is Incremented by at Each New Trip, i.e. for any Particle there can be a 16 Total Unique TripID
+		* Smallest TripID = 00
+		* Maximum TripID  = 15
+	- TimeStamp		: Time-Stamp (full) at the Position (xStart, yStart)
+	- xStart		: Starting x-Position : Not Normalized
+	- yStart		: Starting y-Position : Not Normalized
+
+	- TripSubNum	: (OPTIONAL) Set a Second-Decimal Number Column at Last, which represents the when the Trip Starts (0)
+		* this is Incrementally Increased by 1, and again the counter resets at the Next TripID
+	
+	** Calculated Fields **
+	- velocity		: Velocity at this Current Position (xStart, yStart)
+	- distCovered	: Distance Covered b/w (xStart, yStart) & (xStart, yStart) + 1 : Next Position
+	- timeTaken		: Time Taken to Cover b/w (xStart, yStart) & (xStart, yStart) + 1 : Next Position

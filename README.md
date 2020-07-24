@@ -1,2 +1,2 @@
-# rnn-centroid-detection
-A project, created for developing code for building a Centroid Detection Algorithm using SOM (RNN)
+# Centroid Detection (RNN-SOM)
+Project Codecs for Centroid Detection of Moving Objects/Particles with the help of RNN Implementations. <TO-DO Documentations>.
